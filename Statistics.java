@@ -16,9 +16,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
 * This is the statistics program.
@@ -41,14 +38,15 @@ final class Statistics {
     * The mean() function.
     *
     * @param arrayOfIntegers the collection of integers
+    * @param quantity the number of integers within the array
     * @return the mean of the integers
     */
     public static float mean(final Integer[] arrayOfIntegers,
-       final float quantity) {
+        final float quantity) {
         float meanCalc = 0;
 
         for (int counter : arrayOfIntegers) {
-                meanCalc += counter;
+            meanCalc += counter;
         }
         meanCalc = meanCalc / quantity;
 
@@ -59,23 +57,24 @@ final class Statistics {
     * The median() function.
     *
     * @param arrayOfIntegers the collection of integers
+    * @param quantity the nuber of integers within the array
     * @return the median of the integers
     */
-    public static float median(final Integer[] arrayOfIntegers, 
-                    final float quantity) {
-       float medianCalc = 0;
-       final double extra = 0.5;
-       Arrays.sort(arrayOfIntegers);
+    public static float median(final Integer[] arrayOfIntegers,
+        final float quantity) {
+        float medianCalc = 0;
+        final double extra = 0.5;
+        Arrays.sort(arrayOfIntegers);
 
-       if (quantity % 2 == 0) {
-               medianCalc = arrayOfIntegers[(int) (quantity / 2 - extra)];
+        if (quantity % 2 == 0) {
+            medianCalc = arrayOfIntegers[(int) (quantity / 2 - extra)];
         } else {
-                medianCalc = (arrayOfIntegers[(int) (quantity / 2 - extra)] 
-                            + arrayOfIntegers[(int) (quantity / 2 + extra)]) / 2;
+            medianCalc = (arrayOfIntegers[(int) (quantity / 2 - extra)]
+                         + arrayOfIntegers[(int) (quantity / 2 + extra)])
+                         / 2;
         }
-       return medianCalc;
+        return medianCalc;
     }
-
 
     /**
     * The starting main() function.
