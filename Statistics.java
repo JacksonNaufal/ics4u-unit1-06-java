@@ -1,6 +1,6 @@
 
 /*
-* This is a program that calculates mean, median and mode
+* This is a program that calculates mean, median
 * after reading in a text file into an array.
 *
 * @author  Jackson Naufal
@@ -8,6 +8,7 @@
 * @since   2020-09-30
 */
 
+// These are some imports.
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -43,8 +44,11 @@ final class Statistics {
     */
     public static float mean(final Integer[] arrayOfIntegers,
         final float quantity) {
+
+        // this is my variable in my mean function
         float meanCalc = 0;
 
+        // this is the loop to find the mean.
         for (int counter : arrayOfIntegers) {
             meanCalc += counter;
         }
@@ -62,10 +66,13 @@ final class Statistics {
     */
     public static float median(final Integer[] arrayOfIntegers,
         final float quantity) {
+
+        // these are my variables in my median function.
         float medianCalc = 0;
         final double extra = 0.5;
         Arrays.sort(arrayOfIntegers);
 
+        // this is the calculation for the median.
         if (quantity % 2 == 0) {
             medianCalc = arrayOfIntegers[(int) (quantity / 2 - extra)];
         } else {
@@ -73,6 +80,7 @@ final class Statistics {
                          + arrayOfIntegers[(int) (quantity / 2 + extra)])
                          / 2;
         }
+        // this returns the medians calculated number.
         return medianCalc;
     }
 
@@ -83,6 +91,7 @@ final class Statistics {
     */
     public static void main(final String[] args) {
 
+        // These are my variables within my main function
         Integer tempNumber;
         final float meanCalc;
         final float medianCalc;
@@ -91,6 +100,7 @@ final class Statistics {
         final Path filePath = Paths.get("./", args[0]);
         final Charset charset = Charset.forName("UTF-8");
 
+        // this is the process for my program
         try (BufferedReader reader = Files.newBufferedReader(
                                      filePath, charset)) {
             String line = null;
@@ -103,8 +113,10 @@ final class Statistics {
         }
 
         arrayOfIntegers = listOfNumbers.toArray(new Integer[0]);
+        // This gathers the amount of ints in the array.
         final float quantity = arrayOfIntegers.length;
 
+        // this is my output for my program.
         System.out.println("\nCalculating stats...");
         meanCalc = mean(arrayOfIntegers, quantity);
         medianCalc = median(arrayOfIntegers, quantity);
